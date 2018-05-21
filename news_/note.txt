@@ -1,0 +1,26 @@
+生命周期理解：
+beforeCreate//代表实例创建之前new Vue({
+	el:'',
+	template:'',
+	methods:{},
+	data:{}
+})//这个时候渲染数据是无效的，因为实例并没有创建完成所以写的函数没办法调用
+
+created//代表实例创建结束但是dom并没有生成  $el也不存在  数据没办法渲染
+
+beforeMount//$el不存在
+
+mounted//代表数据开始渲染  $el生成
+
+
+vm.$destroy()//销毁实例->beforeDestroy//销毁之前->destroyed//销毁之后
+
+beforeUpdate()//数据（data）发生改变才会触发update函数
+updated()
+
+activated//调用<keep-alive></keep-alive>//（缓存失活的组件）组件时候触发
+deactivited停用<keep-alive></keep-alive>组件时候触发
+
+模板理解：
+{{str + 'likaizhu'}}//模板里面的内容相当于一个js表达式
+<div v-html="str + ' likaizhu ' "></div>

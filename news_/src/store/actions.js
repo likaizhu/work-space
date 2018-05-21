@@ -1,0 +1,23 @@
+export default{
+	showHeader:({commit})=>{
+		commit('show')
+	},
+	hideHeader:({commit})=>{
+		commit('hide')
+	},
+	showLoading:({commit})=>{
+		commit('showLoading')
+	},
+	hideLoading:({commit})=>{
+		commit('hideLoading')
+	},
+	hideMenu:({commit})=>{
+		commit('hideMenu')
+	},
+	showMenu:({commit})=>{
+		commit('showMenu')
+	},
+	hideTuCeng:({commit})=>{
+		commit('hideTuCeng')
+	}
+}
