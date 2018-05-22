@@ -24,3 +24,5 @@ deactivited停用<keep-alive></keep-alive>组件时候触发
 模板理解：
 {{str + 'likaizhu'}}//模板里面的内容相当于一个js表达式
 <div v-html="str + ' likaizhu ' "></div>
+
+//测试修改
