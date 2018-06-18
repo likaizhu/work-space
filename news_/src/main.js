@@ -9,7 +9,7 @@ import filters from './filters'
 Object.keys(filters).forEach((key)=>Vue.filter(key,filters[key]));//过滤器生效
 Vue.use(VueRouter)
 Vue.use(Loading)
-
+Vue.prototype.bus = new Vue();
 //拦截器
 //axios的配置
 axios.interceptors.request.use(function(config){

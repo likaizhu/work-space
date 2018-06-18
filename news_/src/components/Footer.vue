@@ -11,7 +11,7 @@
 </template>
 <style type="text/css" media="screen">
 	#footer{
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		width: 100%;
 		font-size: .5rem;

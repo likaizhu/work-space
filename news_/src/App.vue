@@ -5,6 +5,7 @@
     <transition name='slide-down'>
       <keep-alive><router-view class='routerclass'></router-view></keep-alive>
     </transition>
+    <div style="height:50px;"></div>
     <Footer v-show='menuShow'></Footer>
   </div>
 </template>
@@ -43,13 +44,6 @@ export default {
         this.$store.dispatch('showMenu');
         this.$store.dispatch('showHeader')
       }
-      // if(to.path=='/article/'+id){
-      //   this.$store.dispatch('hideMenu')
-      // }else{
-      //   this.$store.dispatch('showMenu')
-      // }
-      
-      
     }
   }
 }
@@ -83,20 +77,20 @@ export default {
     top: -250px;
   }*/
   .slide-down-enter-active{
-    transition:.5s all ease;
-    opacity: 0;
-    transform:translate3d(0,.5rem,0);
+    transition:all 1s  ease;
+    opacity: 1;
+    transform:translate3d(0,.75rem,0);
   }
   .slide-down-enter{
     opacity: 0;
   }
   .slide-down-leave{
-    opacity: 1;
+    opacity: 0;
   }
-  .slide-down-leave-active{
+ /* .slide-down-leave-active{
     transition:.5s all ease;
     opacity: 0.2;
     transform:translate3d(0,.5rem,0);
-  }
+  }*/
 
 </style>

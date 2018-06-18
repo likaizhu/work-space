@@ -3,11 +3,12 @@
 		<div class="article_box">
 			<div class="left" onclick='window.history.go(-1)'> < </div>
 		</div>
-		<div class="article_content">
+		<template class="article_content">
 			<div>{{articleData.title}}</div>
 			<div>{{articleData.content}}</div>
 			<div>{{articleData.time | normalTime}}</div>
-		</div>
+			<div>{{articleData.name}}</div>
+		</template>
 	</div>
 </template>
 <script>
@@ -20,12 +21,17 @@
 		mounted(){
 			var id=this.$route.params.id;
 			this.fetchData(id);
+
 		},
 		methods:{
 			fetchData(id){
 				var this_=this;
 				this.$http.get('http://localhost:8080/src/data/article.js').then(function(res){
 					this_.articleData=res.data[id-1];
+					Object.assign(this_.articleData, {
+						name:'likaizhu',
+						tel:'15344503742'
+					});//通过这种方式在数组或者对象中添加新的东西
 					console.log(this_.articleData)
 				}).catch(function(err){
 					console.log(err)

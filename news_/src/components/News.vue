@@ -2,7 +2,7 @@
 	<div id='news'>
 		<Banner></Banner>
 		<ul>
-			<li v-for='leng in newsArr'>
+			<li v-for='leng in newsArr' :key="leng.id">
 				<router-link :to="'/article/'+leng.id">
 					<h2 class="title">{{leng.title}}</h2>
 					<div class="content">{{leng.content}}</div>
@@ -15,6 +15,19 @@
 			显示图层
 		</div>
 		<div v-html='name'></div>
+		<router-link to="/baiduSearch">百度搜索功能</router-link>
+		<Cha-cao>
+			<header slot="header">
+				我是头部
+			</header>
+			<template slot-scope="propSlot">
+				<div>{{propSlot.person.name}}=={{propSlot.person.age}}</div>
+			</template>	
+		</Cha-cao>
+		<transition name="fade">
+			<component :is="type"></component>
+		</transition>
+		<input type='button' @click="clickToggle" value="切换组件" />
 	</div>
 </template>
 <style type="text/css" media="screen" scoped>
@@ -35,11 +48,23 @@
     	background: rgba(0,0,0,0.5);
     	z-index: 100
 	}
+	.fade-enter {
+		opacity: 0;
+	}
+	.fade-enter-active {
+		transition:all 2s ease;
+	}
+	.fade-leave {
+		opacity: 0;
+	}
 </style>
 <script type="text/javascript">
 	import Banner from './Banner.vue'
 	import Map from './Map.vue'
 	import Search from './Search.vue'
+	import ChaCao from './ChaCao.vue'
+	import One from './One.vue'
+	import Two from './Two.vue'
 	import {mapGetters,mapActions} from 'vuex'
 	export default{
 		computed:mapGetters(['hide']),
@@ -52,7 +77,8 @@
 					lineHeight:'',
 					textAlign:'center'
 				},
-				name:'<h1>likaizhu</h1>'
+				name:'<h1>likaizhu</h1>',
+				type:'One'
 			}
 		},
 		mounted(){
@@ -77,12 +103,18 @@
 			},
 			disappear(){
 				this.$store.dispatch('hideTuCeng')
+			},
+			clickToggle(){
+				this.type = this.type ==='One' ? 'Two' : 'One'
 			}
 		},
 		components:{
 			Banner,
 			Map,
-			Search
+			Search,
+			ChaCao,
+			One,
+			Two
 
 		}
 	}

@@ -3,6 +3,7 @@ import Cre from './components/Cre.vue'
 import Register from './components/Register.vue' 
 import Article from './components/Article.vue'
 import Search from './components/Search.vue'
+import BaiduSearch from './components/BaiduSearch.vue'
 const Home = ()=> import('./components/News.vue')
 const Column = ()=> import('./components/Column.vue')
 const Follow = ()=> import('./components/Follow.vue')
@@ -41,5 +42,9 @@ export default[
 	{
 		path:'/search',
 		component:Search
+	},
+	{
+		path:'/baiduSearch',
+		component:BaiduSearch
 	}
 ]
